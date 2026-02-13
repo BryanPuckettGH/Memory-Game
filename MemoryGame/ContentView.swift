@@ -735,13 +735,15 @@ struct ContentView: View {
                     cards[second].isFaceUp = false
                     cards[second].isMismatched = false
 
-                    // Impossible mode: shuffle all non-matched cards
+                    // For shuffle modes, close any card the player tapped
+                    // while waiting, so the shuffle doesn't break pairs
                     if case .impossible = gameMode {
+                        closeStrayCards()
                         shuffleUnmatched()
                     }
 
-                    // Genie mode: reset all matches and shuffle everything
                     if case .genie = gameMode {
+                        closeStrayCards()
                         genieReset()
                     }
                 }
@@ -755,6 +757,18 @@ struct ContentView: View {
                 }
             }
             firstSelectedIndex = index
+        }
+    }
+
+    // Close any face-up non-matched cards and reset selection
+    // Called before shuffle to prevent race conditions from fast tapping
+    private func closeStrayCards() {
+        firstSelectedIndex = nil
+        for i in 0..<cards.count {
+            if cards[i].isFaceUp && !cards[i].isMatched {
+                cards[i].isFaceUp = false
+                cards[i].isMismatched = false
+            }
         }
     }
 
