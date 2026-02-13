@@ -12,7 +12,7 @@
 
 | | |
 |---|---|
-| **Time Spent** | 5 hours |
+| **Time Spent** | 26 hours |
 | **Platform** | iOS (SwiftUI) |
 
 ---
@@ -40,6 +40,11 @@
 - [x] User can select number of pairs to play with (2, 4, 6, 8, 10, or 12 pairs)
 - [x] App allows for user to scroll to see pairs out of view
 - [x] UI polish with colored buttons, gradient card backs, and capsule-shaped buttons
+
+## Additional Features
+
+The following features were built beyond the assignment requirements to further explore SwiftUI:
+
 - [x] 4 unique game modes, each with its own personality-driven prompt sheet:
   - **Free Play** - relaxed, no timer pressure, stopwatch tracks your time
   - **Challenge** - countdown timer, race against the clock
@@ -56,8 +61,8 @@
 ## Notes
 
 - Built entirely with SwiftUI using @State for all game logic
+- Wanted to push myself beyond the base requirements and experiment with different game mechanics
 - Each game mode has a unique prompt sheet with its own personality and tone
-- Impossible and Genie modes add creative twists to the classic memory game formula
 
 ---
 
